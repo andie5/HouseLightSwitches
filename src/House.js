@@ -34,26 +34,30 @@ class House extends React.Component {
       : this.setState({ rooms: { ...this.state.rooms, bedroom: true } });
   };
 
+  // Check the status of the light and display text to show whether it is on and off
+  checkLight = (currentLight) => {
+    return currentLight ? "ON" : "OFF";
+  };
+
   render() {
-    console.log("this.state.rooms.kitchen: ", this.state.rooms.kitchen);
     return (
       <div>
-        Kitchen light is: {this.state.rooms.kitchen ? "ON" : "OFF"}
+        Kitchen light is: {this.checkLight(this.state.rooms.kitchen)}
         <div>
           <button onClick={this.handleKitchenLight}>Kitchen light</button>
         </div>
         <br />
-        Bathroom light is: {this.state.rooms.bathroom ? "ON" : "OFF"}
+        Bathroom light is: {this.checkLight(this.state.rooms.bathroom)}
         <div>
           <button onClick={this.handleBathroomLight}>Bathroom light</button>
         </div>
         <br />
-        Living room light is: {this.state.rooms.livingRoom ? "ON" : "OFF"}
+        Living room light is: {this.checkLight(this.state.rooms.livingRoom)}
         <div>
           <button onClick={this.handleLivingLight}>Living Room light</button>
         </div>
         <br />
-        Bedroom room light is: {this.state.rooms.bedroom ? "ON" : "OFF"}
+        Bedroom room light is: {this.checkLight(this.state.rooms.bedroom)}
         <div>
           <button onClick={this.handleBedroomLight}>Bedroom light</button>
         </div>
